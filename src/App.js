@@ -1,7 +1,7 @@
 import "./App.css";
-import { Home } from "./views/Home";
 import { About } from "./views/About";
-import { Photo } from "./views/Photo";
+import { Gallery } from "./views/Gallery";
+import { DetailPhoto } from "./views/DetailPhoto";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -13,9 +13,9 @@ function App() {
             <Header />
 
             <Routes>
-               <Route path="/" element={<Home />} />
+               <Route path="/" element={<Gallery />} />
                <Route path="/about" element={<About />} />
-               <Route path="/photo/:id" element={<Photo />} />
+               <Route path="/photo/:id" element={<DetailPhoto />} />
             </Routes>
          </Router>
          <Footer />

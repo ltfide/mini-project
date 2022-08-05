@@ -1,26 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export function PhotoCard(props) {
    return (
-      <div className="border mb-4 rounded overflow-hidden">
-         <Link to={`/photo/${props.product.id}`}>
-            <div
-               style={{
-                  backgroundImage: `url('${props.product.images[0].imageUrl}')`,
-               }}
-               className="w-full h-64 bg-blue bg-cover"
-            ></div>
-         </Link>
-         <div className="p-3">
-            <h3 className="font-bold text-xl mb-3">
-               <Link to={`/photo/${props.product.id}`}>{props.product.name}</Link>
-            </h3>
-            <div className="font-bold mb-3">$ {props.product.price}</div>
-            <div className="mb-3">{props.product.description}</div>
-            <Link to={`/photo/${props.product.id}`} className="bg-green-600 hover:bg-green-500 text-white p-2 flex justify-center w-full">
-               View
-            </Link>
+      <div className="mt-4">
+         <div className="flex justify-between items-center">
+            <div className="flex items-center gap-3">
+               <img className="rounded-full border-2 border-green-500" src={props.data.user.profile_image.small} alt="" />
+               <div>
+                  <h3 className="text-slate-500 font-semibold">{props.data.user.name}</h3>
+                  <p className="-mt-1 text-slate-400 font-normal text-sm">{props.data.user.location}</p>
+               </div>
+            </div>
+            <a className="py-2 px-4 bg-white/80 rounded shadow text-slate-500 hover:bg-gray-500 hover:text-white" href={props.data.links.download + "&force=true"} download>
+               Download
+            </a>
+         </div>
+         <div className="my-5">
+            <img className="block mx-auto" src={props.data.urls.regular} alt="" />
+         </div>
+         <div className="flex gap-12">
+            <div>
+               <h3 className="text-slate-600 font-semibold">Views</h3>
+               <h3>{props.data.views}</h3>
+            </div>
+            <div>
+               <h3 className="text-slate-600 font-semibold">Download</h3>
+               <h3>{props.data.downloads}</h3>
+            </div>
          </div>
       </div>
    );
